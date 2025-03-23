@@ -32,8 +32,8 @@ jobs:
 
       - name: Docker Scout Scan
         run: |
-          docker-scout quickview fs://.
-          docker-scout cves fs://.
+          sudo docker-scout quickview fs://.
+          sudo docker-scout cves fs://.
 
       - name: Docker build and push
         run: |
