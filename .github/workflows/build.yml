@@ -29,12 +29,6 @@ jobs:
 
       - name: Docker Login
         run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
-
-      - name: Docker Scout Scan
-        run: |
-          sudo docker-scout quickview fs://.
-          sudo docker-scout cves fs://.
-
       - name: Docker build and push
         run: |
           # Run commands to build and push Docker images
