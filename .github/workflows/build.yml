@@ -29,12 +29,13 @@ jobs:
 
       - name: Docker Login
         run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Install Docker Scout CLI plugin
-        run: |
-         mkdir -p ~/.docker/cli-plugins
-         curl -sSL https://github.com/docker/scout-cli/releases/latest/download/docker-scout_linux_amd64 -o ~/.docker/cli-plugins/docker-scout
-         chmod +x ~/.docker/cli-plugins/docker-scout
+      - name: Install Docker Scout CLI Plugin
+         run:|
+         sudo mkdir -p /usr/local/lib/docker/cli-plugins
+         sudo curl -sSL https://github.com/docker/scout-cli/releases/latest/download/docker-scout_linux_amd64 -o /usr/local/lib/docker/cli-plugins/docker-scout
+         sudo chmod +x /usr/local/lib/docker/cli-plugins/docker-scout
          docker scout version
+
 
       - name: Docker Scout Scan
         run: |
